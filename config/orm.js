@@ -2,29 +2,31 @@
 var connection=require("./connection.js");
 
 var orm = {
-    selectAll:function(tableName) {
+    selectAll:function(tableName,cb) {
      var queryString = "SELECT * FROM ??";   
      connection.query(queryString,[tableName],function(err,result) {
          if(err) throw err;
-         console.log(result);
+         //console.log(result);
+         cb(result);
      });
     },
 
-    insertOne:function(burgerInput,devouredInput){
+    insertOne:function(burgerInput,devouredInput,cb){
      var queryString= "INSERT INTO burgers (burgerName,devoured) VALUES (?,?)";
      connection.query(queryString,[burgerInput,devouredInput],function(err,result){
          if(err) throw err;
-         console.log("successfully added");
-         console.log("affected rows :",(result).affectedRows);
-
+        //  console.log("successfully added");
+        //  console.log("affected rows :",(result).affectedRows);
+        cb(result);
      });
     },
-    updateOne:function(columName1,stateBurger,columName2,valueId){
+    updateOne:function(columName1,stateBurger,columName2,valueId,cb){
         var queryString= "UPDATE burgers SET ?? = ? WHERE ?? = ?";
         connection.query(queryString,[columName1,stateBurger,columName2,valueId],function(err,result){
             if(err) throw err;
-            console.log("successfully updated");
-            console.log("changed rows :",(result).changedRows);
+            // console.log("successfully updated");
+            // console.log("changed rows :",(result).changedRows);
+            cb(result);
         })
     },
 

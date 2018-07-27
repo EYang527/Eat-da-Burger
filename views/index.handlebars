@@ -1,0 +1,41 @@
+
+
+         
+                <img src="/assets/img/Eat-burger.jpg"></img>
+            </div>
+   
+                    <div id= "inputContainer">
+                        <form action="/" method="POST">
+                            <input id="burgerName" type="text" name="burgerName" placeholder="create your burger">
+                            <button id="submitBurger" type="submit"> Submit </button>
+
+    
+
+
+
+
+
+
+<div id="waiting">Waiting List Burgers
+    <ol>
+        {{#each burgers}}
+        {{#unless devoured}}
+        <li> {{burgerName}} <button value={{id}} class="buttons">Eat it</button></li>
+        {{/unless}}
+        {{/each}}
+    </ol>
+</div>
+
+<div id="Eaten">Eaten Burgers
+     <ol>
+        {{#each burgers}}
+        {{#if devoured}}
+        <li> {{burgerName}}</li>
+        {{/if}}
+        {{/each}}
+    </ol>
+</div>
+
+
+
+

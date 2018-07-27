@@ -1,0 +1,13 @@
+#waiting{
+    background:greenyellow;
+    border: 2px solid red;
+    width:200px;
+    float:left;
+}
+
+#Eaten{
+    background:beige;
+    border: 2px solid red;
+    width:200px;
+    float:right;
+}
